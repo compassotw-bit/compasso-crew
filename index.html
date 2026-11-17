@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>COMPASSO COMMUNITY CREW 2026</title>
+<meta name="description" content="COMPASSO Community Crew 2026：邀請喜歡攝影、影像、設計、音樂、帶跑與活動、品牌合作的你，一起把方向，一步一步走出來。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@1,400;1,500&family=Noto+Sans+TC:wght@300;400;500;700&family=Saira+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#000; --ink:#0B0B0A; --bone:#F3F1EA; --soft:#C9C6BC; --mute:#8D8A80; --dim:#5E5C55;
+    --hair:rgba(243,241,234,.18); --hair-2:rgba(243,241,234,.08);
+    --needle:#D8421B;
+    --fallback:"PingFang TC","Microsoft JhengHei","Heiti TC",sans-serif;
+    --disp:"Saira Condensed","Noto Sans TC",var(--fallback);
+    --ui:"Archivo","Noto Sans TC",var(--fallback);
+    --serif:"Cormorant Garamond","Times New Roman",serif;
+    --measure:35em;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{background:var(--void);color:var(--bone);font-family:var(--ui);font-weight:300;font-size:clamp(1rem,.96rem + .2vw,1.0625rem);line-height:1.8;line-break:strict;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+  a{color:inherit}
+  h1,h2{text-wrap:balance}
+  p{text-wrap:pretty}
+  h3,summary,b,strong{font-synthesis:none}
+  .nw{white-space:nowrap}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 56px 0 32px}
+
+  /* reference language: captions, crosshairs, ruler */
+  .cap{font-family:var(--serif);font-style:italic;font-size:15px;line-height:1.4;color:var(--mute);letter-spacing:.01em}
+  .cap-zh{font-size:13px;color:var(--dim);font-weight:400;line-height:1.5}
+  .plus{position:absolute;width:13px;height:13px;pointer-events:none}
+  .plus::before,.plus::after{content:"";position:absolute;background:var(--bone)}
+  .plus::before{left:6px;top:0;width:1px;height:13px}
+  .plus::after{top:6px;left:0;height:1px;width:13px}
+  .num{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--soft)}
+
+  .ruler{position:fixed;top:0;right:0;bottom:0;width:34px;z-index:5;pointer-events:none;border-left:1px solid var(--hair-2);
+    background:
+      repeating-linear-gradient(to bottom,rgba(243,241,234,.35) 0 1px,transparent 1px 80px) right 0 top 0/14px 100% no-repeat,
+      repeating-linear-gradient(to bottom,rgba(243,241,234,.16) 0 1px,transparent 1px 16px) right 0 top 0/7px 100% no-repeat}
+  .ruler span{position:absolute;right:16px;font-family:var(--ui);font-size:9px;color:var(--dim);transform:translateY(-50%)}
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair-2)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+  .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--bone)}
+  .logo .lm{height:28px;width:29.1px}
+  .logo .lw{height:22px;width:120.1px;margin-top:4px}
+  .navcta{font-family:var(--ui);font-size:14px;font-weight:500;letter-spacing:.06em;text-decoration:none;border:1px solid var(--hair);padding:8px 16px;transition:.2s}
+  .navcta:hover{border-color:var(--bone)}
+
+  /* hero */
+  .hero .plus{opacity:.8;z-index:1}
+  .hero{position:relative;min-height:calc(100svh - 60px);overflow:hidden;border-bottom:1px solid var(--hair-2)}
+  #flow{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+  #markdust{position:absolute;inset:0;width:100%;height:100%}
+  .hero .wrap{position:relative;min-height:calc(100svh - 60px);display:grid;grid-template-columns:1.1fr .9fr;gap:40px;padding-top:40px;padding-bottom:48px}
+  .hero-top{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline}
+  .hero-copy{grid-column:2;align-self:center;position:relative}
+  .hero-copy::before{content:"";position:absolute;right:calc(100% + 12px);top:14px;width:min(22vw,260px);height:1px;background:var(--hair)}
+  .hero h1{font-family:var(--disp);font-weight:600;text-transform:uppercase;line-height:.92;font-size:clamp(52px,7.4vw,104px);letter-spacing:0}
+  .hero .zh{font-family:"Noto Sans TC",var(--fallback);font-size:clamp(1.25rem,1.05rem + .9vw,1.625rem);font-weight:500;line-height:1.55;margin-top:28px}
+  .hero .sub{color:var(--soft);margin-top:16px;max-width:26em}
+  .btn{display:inline-flex;align-items:center;gap:14px;background:var(--bone);color:var(--void);text-decoration:none;font-family:var(--ui);font-weight:500;font-size:16px;letter-spacing:.04em;line-height:1.2;padding:17px 26px;border-radius:999px;transition:background .2s,color .2s}
+  .btn:hover{background:var(--needle);color:var(--bone)}
+  .btn svg{width:18px;height:18px}
+  .hero .btn{margin-top:32px}
+  .hero-note{grid-column:1/-1;align-self:end;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+  section{position:relative;border-bottom:1px solid var(--hair-2);padding:104px 0}
+  .head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid var(--hair);padding-bottom:14px;margin-bottom:48px}
+  h2{font-family:var(--disp);font-weight:600;text-transform:uppercase;font-size:clamp(40px,5.6vw,68px);line-height:.96;margin-bottom:22px}
+  .lead{font-family:"Noto Sans TC",var(--fallback);font-size:clamp(1.125rem,1rem + .5vw,1.3125rem);font-weight:400;line-height:1.7;max-width:30em}
+  .lead + .lead{margin-top:16px}
+  .muted{color:var(--soft);font-weight:300}
+
+  /* etymology */
+  .etym{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .wm{display:block;width:100%;max-width:520px;height:auto;aspect-ratio:2353/431;color:var(--bone)}
+  .word{font-family:var(--disp);font-weight:500;font-size:clamp(56px,9vw,124px);line-height:1;text-transform:lowercase;position:relative;display:inline-block}
+  .word .n{color:var(--needle)}
+  .gloss{display:flex;gap:40px;margin-top:22px}
+  .gloss b{display:block;font-family:var(--disp);font-size:22px;font-weight:600;letter-spacing:.04em;color:var(--bone)}
+
+  /* roles = specimen frames */
+  .roles{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 40px}
+  .role{position:relative}
+  .frame{position:relative;border:1px solid var(--hair);aspect-ratio:16/10;background:#000;overflow:hidden}
+  .frame canvas{display:block;width:100%;height:100%}
+  .frame .plus{top:10px;right:10px;transform:scale(.7)}
+  .role .cap{margin-top:12px;font-family:var(--serif);color:var(--mute);font-size:15px;line-height:1.4}
+  .role h3{font-family:var(--disp);font-weight:600;font-size:30px;text-transform:uppercase;letter-spacing:.02em;line-height:1;margin-top:14px}
+  .role .zhname{display:block;font-family:"Noto Sans TC",var(--fallback);font-weight:500;font-size:1rem;line-height:1.4;margin-top:8px}
+  .role p{color:#A9A69C;font-family:"Noto Sans TC",var(--fallback);margin-top:10px;max-width:var(--measure)}
+
+  /* ways to work together */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  .way{position:relative;border-top:1px solid var(--hair);padding-top:28px}
+  .way .plus{top:-7px;left:-6px}
+  .way .tag{font-family:var(--ui);font-size:13px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+  .way h3{font-family:"Noto Sans TC",var(--fallback);font-size:clamp(1.25rem,1.1rem + .5vw,1.5rem);font-weight:700;line-height:1.4;margin:12px 0 10px}
+  .way p{font-family:"Noto Sans TC",var(--fallback);color:var(--soft);max-width:var(--measure)}
+
+  /* steps */
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;counter-reset:s}
+  .steps li{position:relative;border-left:1px solid var(--hair);padding:4px 0 4px 24px;counter-increment:s}
+  .steps li::before{content:"0" counter(s);display:block;font-family:var(--serif);font-style:italic;font-size:30px;line-height:1;color:var(--soft);margin-bottom:18px}
+  .steps h3{font-family:"Noto Sans TC",var(--fallback);font-size:1.25rem;font-weight:700;line-height:1.4;margin-bottom:8px}
+  .steps p{font-family:"Noto Sans TC",var(--fallback);color:#A9A69C}
+
+  /* faq */
+  .faq{max-width:760px}
+  details{border-top:1px solid var(--hair-2);padding:22px 0}
+  details:last-of-type{border-bottom:1px solid var(--hair-2)}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;font-family:"Noto Sans TC",var(--fallback);font-size:1.125rem;font-weight:500;line-height:1.5}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--ui);font-weight:300;font-size:22px;line-height:1;color:var(--mute);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{font-family:"Noto Sans TC",var(--fallback);color:#A9A69C;margin-top:12px;max-width:var(--measure)}
+
+  /* closing */
+  .closing{padding:140px 0 150px;overflow:hidden}
+  #flow2{position:absolute;inset:0;width:100%;height:100%;opacity:.7}
+  .closing .wrap{position:relative}
+  .closing .cm{width:56px;height:auto;aspect-ratio:1982/1910;color:var(--bone);margin-bottom:28px;display:block}
+  .closing h2{font-size:clamp(44px,8vw,112px);margin-bottom:22px}
+  .closing h2 .n{color:var(--needle)}
+  .closing .btn{margin-top:36px}
+
+  footer{padding:40px 0 120px;font-size:14px;line-height:1.6;color:var(--mute)}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  .flock{display:flex;align-items:center;gap:12px;flex-wrap:wrap;color:var(--soft)}
+  .flock .lm{height:24px;width:24.9px;color:var(--bone)}
+  .flock .lw{height:18px;width:98.3px;color:var(--bone);margin-right:8px;margin-top:3px}
+  footer a{text-decoration:none;border-bottom:1px solid var(--hair)}
+  footer a:hover{color:var(--bone)}
+
+  .sticky{display:none}
+
+  @media (max-width:900px){
+    .wrap{padding:0 24px}
+    .ruler{display:none}
+    .hero .wrap{grid-template-columns:1fr;min-height:auto;padding-top:28px}
+    .hero-copy{grid-column:1;padding-top:44vh}
+    .hero-copy::before{display:none}
+    .etym,.ways{grid-template-columns:1fr}
+    .roles{grid-template-columns:1fr 1fr;gap:44px 24px}
+    .steps{grid-template-columns:1fr;gap:28px}
+    section{padding:80px 0}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 20px}
+    .roles{grid-template-columns:1fr}
+    .navcta{display:none}
+    .hero .btn{display:none}
+    .hero-copy{padding-top:30vh;isolation:isolate}
+    .hero > .plus:nth-of-type(n+2){display:none}
+    .hero-copy::after{content:"";position:absolute;inset:26vh -20px -20px;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,0),rgba(0,0,0,.72) 22%)}
+    .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(0,0,0,.88);backdrop-filter:blur(10px);border-top:1px solid var(--hair-2)}
+    .sticky .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mark" viewBox="0 0 1982 1910"><path fill="currentColor" fill-rule="evenodd" d="M942,1901C940,1901 930,1901 922,1900C892,1898 873,1896 826,1888C801,1884 774,1878 766,1876C764,1875 755,1873 746,1871C726,1866 723,1865 699,1858C678,1851 660,1845 656,1844C653,1842 652,1841 632,1834C624,1831 615,1828 612,1826C608,1824 599,1820 592,1817C568,1807 521,1784 503,1772C498,1769 494,1767 494,1767C493,1767 480,1759 468,1751C441,1733 424,1719 402,1697C362,1658 338,1618 327,1574C315,1529 316,1495 330,1448C334,1435 338,1427 346,1411C354,1395 366,1378 375,1366C379,1362 383,1357 384,1355C388,1350 407,1331 416,1322C430,1310 440,1302 456,1291C476,1277 482,1273 548,1235C555,1231 567,1224 576,1219C584,1214 595,1208 601,1204C620,1193 626,1190 642,1181C650,1176 663,1169 671,1164C679,1159 692,1152 700,1148C707,1143 717,1137 721,1135C725,1133 735,1127 743,1122C759,1113 761,1113 767,1116C770,1118 772,1121 771,1128C770,1132 764,1153 761,1161C760,1164 758,1168 758,1169C753,1185 735,1224 725,1240C715,1257 698,1283 690,1293C688,1294 684,1300 680,1306C669,1319 635,1352 620,1365C604,1378 584,1392 572,1400C535,1422 504,1449 489,1473C484,1481 477,1494 475,1501C473,1509 473,1525 475,1534C478,1542 487,1559 493,1567C514,1595 545,1620 592,1645C609,1654 645,1672 656,1677C668,1682 669,1682 677,1686C683,1689 690,1691 710,1698C714,1700 720,1702 722,1702C728,1705 752,1712 766,1716C772,1718 780,1720 782,1720C810,1728 858,1738 890,1741C931,1746 936,1746 991,1746C1046,1746 1054,1746 1092,1741C1117,1738 1146,1733 1184,1725C1201,1721 1252,1706 1261,1702C1262,1702 1264,1701 1265,1701C1265,1701 1269,1700 1274,1698C1279,1696 1286,1693 1291,1692C1296,1690 1302,1688 1306,1686C1309,1684 1317,1681 1324,1678C1349,1667 1393,1645 1416,1630C1472,1596 1507,1555 1510,1521C1511,1505 1506,1492 1492,1470C1477,1448 1447,1421 1414,1402C1404,1396 1381,1379 1370,1371C1355,1359 1347,1351 1330,1334C1294,1298 1269,1263 1246,1218C1232,1189 1222,1163 1213,1131C1211,1123 1212,1118 1218,1115C1223,1112 1223,1112 1268,1138C1277,1144 1298,1156 1313,1164C1328,1173 1342,1181 1344,1182C1347,1184 1359,1191 1366,1195C1368,1196 1371,1198 1372,1198C1373,1199 1379,1203 1386,1207C1393,1210 1405,1217 1412,1222C1419,1226 1431,1232 1437,1236C1443,1240 1456,1247 1464,1252C1472,1257 1483,1262 1486,1265C1514,1280 1543,1302 1568,1323C1598,1350 1623,1383 1640,1416C1648,1434 1653,1446 1658,1466C1663,1486 1664,1496 1664,1517C1664,1541 1663,1550 1655,1578C1647,1608 1630,1640 1606,1670C1567,1719 1510,1760 1427,1800C1409,1810 1388,1819 1388,1819C1387,1819 1382,1821 1376,1824C1370,1827 1359,1831 1351,1834C1332,1841 1330,1842 1327,1844C1324,1845 1297,1854 1272,1861C1258,1866 1241,1870 1233,1872C1231,1872 1224,1874 1218,1876C1199,1881 1176,1885 1154,1888C1140,1891 1127,1893 1116,1894C1106,1896 1085,1898 1064,1900C1052,1901 953,1902 942,1901ZM809,1258C805,1256 803,1252 803,1248C803,1246 804,1242 806,1238C812,1227 814,1220 822,1200C830,1179 835,1164 841,1140C847,1115 848,1113 851,1096C858,1061 859,1060 864,1054C866,1052 874,1045 881,1039C921,1009 952,977 978,936C990,919 1001,899 1008,882C1025,843 1035,810 1041,766C1042,756 1042,723 1043,517C1043,339 1044,277 1045,270C1046,266 1047,256 1048,250C1049,239 1051,229 1055,211C1060,189 1071,157 1082,136C1099,102 1126,70 1156,49C1178,33 1205,21 1234,14C1270,6 1323,7 1362,18C1387,24 1410,32 1425,39C1431,42 1436,44 1437,44C1437,44 1460,55 1471,61C1480,66 1510,84 1512,86C1513,86 1519,90 1526,95C1539,103 1544,106 1572,126C1598,146 1622,164 1639,180C1702,237 1749,288 1795,354C1804,367 1822,394 1828,404C1831,408 1833,411 1834,412C1838,417 1871,478 1879,497C1882,503 1886,511 1888,516C1890,521 1894,530 1896,536C1899,542 1902,549 1902,551C1905,556 1911,572 1915,584C1917,590 1920,597 1920,598C1922,603 1929,624 1936,647C1936,650 1938,654 1938,656C1939,659 1940,662 1941,664C1942,668 1948,691 1949,697C1949,700 1951,709 1953,718C1955,728 1958,738 1958,741C1958,744 1959,748 1960,751C1962,762 1968,808 1971,836C1975,880 1975,953 1971,984C1966,1021 1960,1046 1948,1078C1942,1093 1931,1115 1923,1128C1900,1163 1875,1187 1844,1204C1827,1214 1825,1213 1815,1197C1795,1165 1768,1126 1745,1098C1738,1089 1736,1086 1736,1084C1736,1081 1737,1080 1739,1079C1741,1078 1744,1077 1746,1077C1750,1077 1759,1074 1766,1070C1785,1061 1802,1036 1810,1002C1818,972 1820,949 1820,906C1819,862 1817,837 1809,788C1808,775 1801,742 1800,741C1800,740 1800,738 1799,736C1797,724 1785,681 1783,675C1782,674 1779,663 1775,652C1729,516 1644,390 1534,294C1492,257 1438,220 1394,196C1370,183 1342,171 1324,167C1290,160 1265,162 1248,173C1224,189 1208,223 1200,274C1199,287 1198,299 1198,514C1198,733 1199,742 1200,750C1203,762 1206,769 1212,781C1219,797 1226,806 1238,818C1249,829 1261,838 1276,846C1279,848 1285,851 1288,852C1290,854 1300,860 1308,864C1330,877 1337,881 1340,883C1344,886 1345,891 1343,896C1342,899 1335,903 1330,903C1324,903 1284,910 1264,916C1253,918 1203,934 1180,942C1177,944 1169,946 1163,948C1152,951 1147,953 1145,956C1145,957 1142,961 1140,966C1117,1010 1099,1037 1065,1078C1057,1089 1018,1128 1006,1138C1001,1142 995,1147 993,1149C980,1160 952,1180 935,1190C922,1197 922,1198 906,1206C899,1211 890,1216 888,1218C885,1219 877,1224 870,1227C864,1231 851,1238 842,1244C816,1259 814,1260 809,1258ZM236,1232C211,1230 188,1226 170,1219C124,1200 90,1173 61,1130C55,1120 40,1092 36,1081C32,1071 24,1047 23,1042C17,1018 16,1009 13,991C8,957 7,904 11,852C14,817 20,763 25,739C26,735 28,724 30,714C36,688 41,668 46,654C46,651 48,647 48,644C52,630 59,608 62,602C64,594 68,583 72,571C74,567 76,561 78,558C79,555 83,545 86,536C90,528 95,517 97,513C99,509 102,501 105,496C118,466 147,414 170,380C198,337 223,305 257,267C269,253 319,203 330,192C366,160 399,134 434,110C455,96 492,72 494,72C494,72 495,71 496,71C497,69 506,64 524,55C533,50 565,36 576,31C581,29 609,21 622,17C642,12 668,9 694,9C723,9 745,12 764,18C767,19 773,21 776,22C814,35 848,61 875,95C883,106 896,126 902,139C919,172 931,215 936,258C940,288 940,298 940,460L940,621L937,624C935,627 929,629 926,627C921,625 900,602 883,581C871,566 856,544 844,523C837,511 821,477 817,464C814,457 811,450 810,448C806,436 804,428 800,412C797,401 792,377 790,362C787,347 786,334 785,308C784,272 780,252 772,227C762,200 749,180 732,171C720,165 699,162 680,164C667,166 650,170 640,173C635,175 630,176 629,177C614,182 587,196 559,213C548,220 517,240 511,245C510,246 503,251 497,256C480,268 480,268 474,272C436,304 390,348 360,384C341,407 322,432 306,456C292,477 278,498 278,500C278,500 276,504 273,509C267,518 246,559 240,573C231,591 230,594 228,599C227,602 226,605 225,606C213,634 197,683 187,724C182,743 180,751 179,758C174,786 174,789 170,816C163,871 161,934 166,967C170,998 176,1017 185,1034C197,1058 208,1068 228,1075C235,1077 237,1077 254,1077C273,1077 278,1077 296,1072C317,1067 330,1061 367,1042C397,1027 408,1022 430,1015C438,1013 445,1010 447,1010C465,1003 496,997 542,992C560,990 600,990 616,992C623,992 632,993 638,994C662,997 698,1004 704,1008C706,1008 708,1010 708,1012C710,1016 710,1017 709,1020C708,1024 705,1026 687,1036C679,1041 666,1048 657,1053C648,1058 635,1066 627,1070C620,1075 608,1082 601,1086C594,1090 582,1097 574,1101C565,1106 558,1110 557,1111C556,1112 550,1115 544,1118C538,1122 532,1126 529,1127C526,1129 520,1133 514,1136C507,1140 497,1145 491,1149C464,1165 447,1175 434,1182C427,1186 410,1194 410,1194C409,1194 405,1196 401,1198C381,1208 343,1221 322,1225C304,1229 303,1229 291,1230C280,1232 246,1233 236,1232ZM1712,1232C1692,1231 1672,1228 1656,1224C1651,1223 1646,1222 1644,1221C1640,1220 1638,1219 1614,1211C1585,1201 1563,1190 1509,1159C1500,1154 1488,1147 1482,1144C1477,1140 1467,1134 1460,1130C1426,1111 1407,1100 1388,1089C1382,1086 1374,1081 1372,1080C1369,1078 1362,1074 1356,1070C1350,1067 1342,1063 1338,1060C1335,1058 1327,1054 1321,1050C1289,1032 1278,1026 1276,1023C1273,1019 1273,1013 1276,1010C1279,1006 1285,1005 1306,1000C1324,997 1342,994 1366,992C1384,990 1424,990 1441,992C1480,996 1508,1001 1522,1006C1531,1009 1549,1018 1557,1023C1582,1040 1636,1093 1669,1133C1673,1138 1677,1143 1678,1144C1683,1149 1710,1186 1722,1204C1734,1220 1734,1222 1732,1227C1728,1232 1725,1233 1712,1232Z"/></symbol>
+<symbol id="word" viewBox="0 0 2353 431"><path fill="currentColor" fill-rule="evenodd" d="M1009,420C1004,416 1005,412 1014,403C1024,392 1031,383 1032,378C1032,376 1033,360 1034,343C1034,326 1036,296 1036,278C1037,257 1037,214 1037,170C1036,63 1035,58 1018,38C1011,30 1009,24 1011,20C1014,14 1023,12 1045,14C1068,17 1070,18 1083,31C1087,36 1092,40 1092,40C1094,40 1106,34 1116,28C1125,23 1140,17 1152,14C1162,12 1164,12 1180,12C1197,12 1199,12 1208,14C1220,18 1227,20 1236,26C1259,41 1274,66 1284,100C1289,121 1289,166 1284,190C1282,197 1274,220 1273,222C1273,222 1270,226 1268,230C1259,248 1240,269 1224,277C1223,278 1219,280 1216,282C1210,285 1202,288 1188,292C1179,294 1178,294 1154,294C1140,294 1123,294 1116,293C1105,292 1103,292 1100,293C1096,295 1094,298 1093,303C1091,308 1091,314 1091,347C1091,390 1091,389 1099,399C1107,411 1109,416 1104,421C1102,423 1100,423 1057,423L1012,423L1009,420ZM121,294C117,294 111,292 106,291C102,290 97,288 96,288C86,286 72,278 62,271C47,259 31,240 24,225C24,222 22,220 22,219C20,218 18,211 12,192C7,172 7,131 12,112C20,88 26,73 33,62C51,37 71,22 100,14C118,8 117,9 144,9C168,9 169,9 178,11C203,18 215,24 229,38C247,55 250,72 235,72C229,72 222,70 215,65C189,48 164,42 142,46C116,51 101,62 88,85C84,92 80,101 76,116C73,126 71,150 73,167C74,182 75,186 80,202C88,225 106,245 125,252C155,263 180,259 214,239C228,230 238,229 242,234C254,244 224,276 194,287C175,293 171,294 148,294C137,295 125,294 121,294ZM384,294C362,292 341,283 326,271C301,251 286,227 280,194C275,170 274,145 277,128C279,115 284,95 285,92C286,91 288,87 290,82C292,78 294,73 295,72C296,71 299,66 302,62C308,52 321,39 330,33C340,26 354,19 365,15C387,8 386,8 410,8C434,8 434,8 456,16C504,32 533,69 544,129C545,137 545,143 545,157C544,174 544,178 540,194C536,214 530,228 522,242C516,251 497,270 489,275C476,284 468,287 450,292C441,294 438,294 416,294C402,295 387,294 384,294ZM559,294C556,292 555,287 556,284C557,283 561,277 566,272C577,260 581,254 582,246C584,237 585,197 586,151C586,108 585,71 582,60C579,51 575,43 567,34C562,30 559,23 559,20C559,17 563,13 568,12C575,10 582,10 597,12C618,14 622,16 635,29C641,35 646,39 647,39C648,39 653,37 657,35C668,29 684,20 686,19C686,19 690,17 694,15C699,13 704,11 706,10C713,8 745,8 753,10C767,15 775,20 792,34C796,38 801,41 802,42C806,44 812,43 818,39C851,17 868,11 895,9C903,9 908,9 914,10C938,16 961,34 966,52C970,66 974,88 975,112C975,120 976,155 976,189L976,252L980,258C982,262 988,268 992,273C1001,282 1003,286 1001,290C998,295 999,295 952,295C910,295 908,295 906,293C905,292 904,290 903,288C903,286 903,284 913,266L916,260L916,192C916,99 915,88 905,72C896,59 886,54 869,54C853,54 838,60 826,72C811,87 810,94 810,174C810,211 810,231 811,243C812,259 812,259 815,263C817,266 822,271 827,274C838,284 839,288 834,293C832,295 830,295 781,295L730,295L728,292C723,287 724,285 738,271C753,257 752,264 752,184C752,125 751,115 750,104C749,97 747,89 747,86C744,75 736,65 727,61C720,59 695,59 686,62C668,67 653,82 647,100C644,108 643,127 642,192C642,236 642,252 643,256C644,260 646,263 650,270C654,274 658,280 659,282C661,287 661,287 659,290C658,292 657,294 657,294C656,295 634,295 608,295C571,295 560,295 559,294ZM1368,294C1359,292 1344,286 1338,280C1327,271 1318,257 1315,243C1312,234 1312,215 1315,206C1320,180 1338,162 1370,149C1376,146 1383,143 1387,142C1391,142 1396,140 1398,140C1406,137 1415,135 1426,133C1432,132 1440,130 1443,129C1446,128 1451,127 1453,126C1460,125 1463,123 1467,118C1472,113 1475,108 1476,101C1479,86 1473,67 1464,56C1455,47 1441,42 1425,42C1408,42 1398,49 1382,71C1370,86 1362,92 1352,94C1341,96 1334,92 1328,81C1325,75 1325,74 1325,66C1325,56 1326,52 1333,43C1337,37 1348,28 1358,24C1361,22 1366,20 1367,20C1370,18 1386,14 1402,10C1408,9 1414,8 1434,9C1461,9 1462,9 1479,14C1501,21 1519,39 1524,59C1530,86 1531,93 1532,167C1532,207 1533,233 1534,236C1534,238 1536,242 1537,244C1541,250 1544,251 1557,256C1572,262 1573,264 1569,273C1565,280 1557,286 1547,290C1537,294 1528,295 1516,295C1505,294 1501,292 1487,278C1479,270 1475,267 1474,267C1472,267 1466,269 1460,272C1435,285 1429,287 1412,292C1404,294 1375,296 1368,294ZM1659,294C1645,293 1624,288 1614,284C1600,278 1598,274 1594,254C1591,244 1592,225 1594,218C1597,210 1603,204 1609,204C1616,204 1625,212 1633,227C1649,255 1665,264 1696,264C1709,264 1716,263 1726,259C1731,257 1738,249 1742,243C1744,238 1744,236 1744,227C1744,218 1744,216 1742,212C1739,206 1731,198 1724,193C1718,190 1692,177 1690,177C1690,177 1687,176 1684,174C1680,172 1677,171 1677,171C1675,171 1651,159 1642,154C1623,143 1613,133 1606,121C1601,113 1598,98 1598,84C1598,72 1599,67 1604,56C1613,38 1631,22 1652,15C1672,8 1670,9 1697,8C1722,8 1724,9 1742,14C1768,20 1784,32 1788,46C1790,56 1789,72 1785,79C1781,87 1772,92 1766,89C1762,88 1756,81 1750,71C1736,52 1729,45 1717,42C1710,39 1706,39 1696,39C1685,39 1682,39 1675,42C1668,44 1666,45 1661,49C1653,57 1652,60 1652,73L1652,83L1656,88C1662,99 1674,107 1695,116C1699,117 1704,119 1706,120C1709,122 1714,124 1716,124C1732,130 1754,142 1765,149C1780,160 1793,176 1798,190C1800,198 1800,222 1798,234C1794,253 1780,272 1763,282C1758,285 1745,290 1733,292C1727,294 1720,294 1696,295C1680,295 1664,294 1659,294ZM1901,294C1890,293 1874,290 1860,285C1843,280 1836,270 1834,245C1833,231 1834,219 1837,213C1841,206 1848,203 1855,204C1858,205 1866,213 1869,218C1887,247 1895,255 1911,261C1925,265 1944,266 1958,262C1973,258 1982,249 1986,235C1991,220 1983,205 1967,194C1960,190 1936,178 1934,178C1934,178 1930,176 1926,175C1923,173 1917,170 1914,169C1908,167 1892,158 1888,156C1886,155 1883,153 1881,152C1875,149 1862,139 1857,133C1851,127 1846,117 1843,108C1840,98 1840,72 1843,63C1850,43 1869,24 1892,16C1910,9 1912,9 1938,8C1964,8 1966,9 1988,15C2007,20 2022,30 2028,42C2030,47 2030,48 2030,58C2030,75 2026,84 2017,88C2008,92 2003,89 1991,70C1984,60 1972,48 1966,45C1958,41 1950,39 1938,39C1915,39 1903,45 1896,59C1890,72 1892,85 1902,95C1905,97 1908,100 1910,102C1915,105 1934,115 1935,115C1936,115 1940,117 1944,119C1948,121 1954,123 1958,124C1963,127 1970,130 1983,136C2016,152 2032,168 2040,192C2044,204 2042,227 2036,245C2030,262 2011,281 1994,287C1974,294 1971,294 1939,294C1923,295 1906,294 1901,294ZM2184,294C2170,292 2155,288 2143,282C2121,271 2099,248 2090,226C2088,222 2086,218 2086,217C2081,207 2075,172 2075,151C2075,138 2076,133 2080,111C2083,99 2089,82 2097,68C2104,56 2119,40 2132,32C2140,25 2158,17 2170,14C2173,13 2178,11 2181,10C2189,8 2230,8 2239,10C2271,20 2290,30 2306,46C2336,79 2350,127 2343,178C2342,186 2341,194 2340,197C2334,219 2327,234 2318,246C2312,255 2297,270 2289,275C2276,284 2268,287 2250,292C2241,294 2238,294 2216,294C2202,295 2187,294 2184,294ZM426,262C434,259 437,258 444,253C464,239 475,218 480,184C482,171 482,127 480,114C478,99 472,79 468,75C468,74 467,73 467,72C467,71 458,59 453,54C445,48 440,45 431,41C424,39 421,39 410,39C399,39 396,39 389,41C385,43 378,46 375,48C368,53 357,64 354,70C353,73 351,76 350,78C347,83 342,99 340,114C338,125 338,172 340,184C345,220 355,239 375,252C383,258 384,258 393,262C402,265 417,265 426,262ZM2226,262C2229,261 2233,260 2234,259C2239,257 2250,249 2255,245C2259,241 2267,230 2267,228C2267,228 2268,227 2268,226C2270,224 2274,212 2277,202C2280,190 2282,173 2282,148C2281,118 2280,106 2274,88C2271,80 2270,77 2264,68C2255,54 2245,46 2231,41C2224,39 2221,39 2210,39C2199,39 2196,39 2189,41C2185,43 2178,46 2175,48C2160,58 2147,78 2143,98C2136,132 2136,168 2144,203C2150,233 2168,253 2195,262C2202,265 2218,264 2226,262ZM1174,256C1199,247 1214,229 1221,200C1229,167 1226,123 1215,94C1208,78 1200,67 1189,59C1179,52 1174,51 1158,51C1143,50 1136,52 1124,60C1108,69 1099,78 1096,86C1093,95 1092,114 1091,161C1091,203 1091,210 1092,219C1094,228 1095,230 1098,235C1104,244 1114,251 1128,256C1136,259 1138,259 1154,258C1166,258 1171,258 1174,256ZM1424,256C1443,250 1463,237 1472,225L1476,220L1476,193L1476,166L1474,164C1470,160 1463,159 1450,159C1423,159 1402,167 1387,182C1377,192 1374,199 1372,214C1370,232 1377,246 1390,252C1400,257 1415,258 1424,256Z"/></symbol>
+</defs></svg>
+<script>(function(){var p=document.querySelector("#mark path");window.MARK_D=p.getAttribute("d");window.MARK_VB="0 0 1982 1910";var f=document.createElement("link");f.rel="icon";f.href="data:image/svg+xml,"+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+window.MARK_VB+'"><path fill="#141410" d="'+window.MARK_D+'"/></svg>');document.head.appendChild(f);})();</script>
+
+<div class="ruler" aria-hidden="true" id="ruler"></div>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="compasso"><svg class="lm" viewBox="0 0 1982 1910"><use href="#mark"/></svg><svg class="lw" viewBox="0 0 2353 431"><use href="#word"/></svg></a>
+    <a class="navcta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="flow" aria-hidden="true"></canvas>
+  <canvas id="markdust" aria-hidden="true"></canvas>
+  <i class="plus" style="left:8%;top:18%"></i><i class="plus" style="left:44%;top:18%"></i><i class="plus" style="left:8%;top:80%"></i><i class="plus" style="left:44%;top:80%"></i>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="cap">Community Crew — Edition 2026</span>
+      <span class="num">01</span>
+    </div>
+
+    <div class="hero-copy">
+      <h1>Measure<br>the way,<br>together.</h1>
+      <p class="zh"><span class="nw">有些事，一個人也能做。</span><br><span class="nw">一起做，</span><span class="nw">會走得更遠一點。</span></p>
+      <p class="sub">COMPASSO 想邀請喜歡拍照、剪片、設計、音樂、帶跑，或喜歡牽起合作的你。不用很厲害，願意一起來就好。</p>
+      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew
+        <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+    </div>
+
+    <div class="hero-note">
+      <span class="cap">fig. 01 — the mark, measured in steps.<br>Taoyuan, Taiwan</span>
+      <span class="cap">scroll ↓</span>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="head"><span class="cap">On the name</span><span class="num">02</span></div>
+    <div class="etym">
+      <div>
+        <svg class="wm" viewBox="0 0 2353 431" role="img" aria-label="compasso"><use href="#word"/></svg>
+        <div class="gloss">
+          <div><b>com</b><span class="cap">together</span></div>
+          <div><b>passo</b><span class="cap">step · pace</span></div>
+        </div>
+      </div>
+      <div>
+        <p class="lead"><span class="nw">COMPASSO，</span><span class="nw">是「一起」加上「步伐」。</span></p>
+        <p class="lead muted">跑團就是這樣開始的。一群人，一步一步，慢慢找到自己的方向。接下來，想邀請更多朋友加入。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="head"><span class="cap">Six specimens of the crew</span><span class="num">03</span></div>
+    <h2>Find your place.</h2>
+    <p class="lead muted" style="margin-bottom:56px"><span class="nw">挑一個你喜歡的，</span><span class="nw">就很好。</span></p>
+
+    <div class="roles">
+      <div class="role"><div class="frame"><canvas data-seed="1"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.1 — light, kept.</p><h3>Photo</h3><span class="zhname">攝影</span>
+        <p>喜歡記錄的你。清晨的路面、終點前的笑臉，都值得被好好留下來。</p></div>
+      <div class="role"><div class="frame"><canvas data-seed="2"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.2 — motion, cut.</p><h3>Video</h3><span class="zhname">影像・剪輯</span>
+        <p>喜歡用畫面說故事的你。一支 Reels、一段活動紀錄，都可以從這裡開始。</p></div>
+      <div class="role"><div class="frame"><canvas data-seed="3"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.3 — form, refined.</p><h3>Design</h3><span class="zhname">平面・視覺</span>
+        <p>對畫面有感覺的你。海報、貼文、小小的細節，我們一起慢慢做好。</p></div>
+      <div class="role"><div class="frame"><canvas data-seed="4"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.4 — pace, in rhythm.</p><h3>Music</h3><span class="zhname">音樂・DJ</span>
+        <p>耳朵很挑的你。幫跑步和訓練，找到剛剛好的節拍。</p></div>
+      <div class="role"><div class="frame"><canvas data-seed="5"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.5 — together, moving.</p><h3>Run &amp; Event</h3><span class="zhname">帶跑・活動</span>
+        <p>喜歡陪伴的你。帶一段配速、迎接新朋友，讓第一次來的人也覺得自在。</p></div>
+      <div class="role"><div class="frame"><canvas data-seed="6"></canvas><i class="plus"></i></div>
+        <p class="cap">fig. 03.6 — paths, crossing.</p><h3>Partnerships</h3><span class="zhname">品牌・合作</span>
+        <p>認識很多有趣朋友的你。品牌、空間、在地小店，幫我們牽起好的相遇。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="together">
+  <div class="wrap">
+    <div class="head"><span class="cap">How we work together</span><span class="num">04</span></div>
+    <h2>Two ways to join.</h2>
+    <p class="lead muted" style="margin-bottom:56px">依照你的時間和想法，選擇適合的方式。</p>
+    <div class="ways">
+      <div class="way"><i class="plus"></i>
+        <span class="tag">Community</span>
+        <h3><span class="nw">社群活動・</span><span class="nw">自由參與</span></h3>
+        <p>跑團、公益、社群活動，大家一起經營。有空就來，想參與哪一場都可以，你的作品也都會署名。</p>
+      </div>
+      <div class="way"><i class="plus"></i>
+        <span class="tag">Projects</span>
+        <h3><span class="nw">品牌合作・</span><span class="nw">事前約定</span></h3>
+        <p>遇到品牌合作或付費專案時，我們會先和你聊好分工與報酬，寫下來，雙方都安心了再開始。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="head"><span class="cap">Getting started</span><span class="num">05</span></div>
+    <h2>First steps.</h2>
+    <ol class="steps" style="margin-top:48px">
+      <li><h3>填寫表單</h3><p>花幾分鐘，聊聊你喜歡做什麼。有作品可以附上，沒有也沒關係。</p></li>
+      <li><h3>我們會好好讀</h3><p>每一份都會細細看。有適合的活動或合作時，會主動聯絡你。</p></li>
+      <li><h3>從一場活動開始</h3><p>先一起跑一次、拍一次，彼此認識，再看看接下來想怎麼走。</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="head"><span class="cap">Notes &amp; questions</span><span class="num">06</span></div>
+    <h2>Good to know.</h2>
+    <div class="faq" style="margin-top:40px">
+      <details><summary>不會跑步也可以加入嗎？</summary><p>當然可以。攝影、影像、設計、音樂、合作，都不需要跑步。想帶跑的朋友，有跑步經驗會更好。</p></details>
+      <details><summary>報名有年齡限制嗎？</summary><p>需要年滿 18 歲。</p></details>
+      <details><summary>沒有作品集也能報名嗎？</summary><p>可以的。作品集是選填，我們更想知道你喜歡做什麼。</p></details>
+      <details><summary>需要花很多時間嗎？</summary><p>不需要固定時間。依照活動和專案安排，參不參加由你決定。</p></details>
+      <details><summary>合作專案的報酬怎麼安排？</summary><p>每個專案不太一樣，開始前會和你個別討論，談好再一起進行。</p></details>
+      <details><summary>報名後多久會有消息？</summary><p>我們會依照活動與專案的需要聯絡大家，可能需要一點時間，謝謝你耐心等候。</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="closing">
+  <canvas id="flow2" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <svg class="cm" viewBox="0 0 1982 1910" aria-hidden="true"><use href="#mark"/></svg>
+    <p class="cap" style="margin-bottom:22px">fig. 07 — and then, you.</p>
+    <h2>Find your direction.<br><span class="n">Then give one.</span></h2>
+    <p class="lead muted"><span class="nw">期待在路上，</span><span class="nw">遇見你。</span></p>
+    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">填寫報名表
+      <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="flock"><svg class="lm" viewBox="0 0 1982 1910"><use href="#mark"/></svg><svg class="lw" viewBox="0 0 2353 431"><use href="#word"/></svg><span>移動有方向 / Movement has a direction</span></span>
+    <span><a href="https://www.instagram.com/compasso.co/" target="_blank" rel="noopener">IG @compasso.co</a> &nbsp;·&nbsp; compassotw@gmail.com</span>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function rng(seed){ return function(){ seed = (seed*16807)%2147483647; return (seed-1)/2147483646; }; }
+  function gauss(r){ return (r()+r()+r()+r()-2)/2; }
+
+  /* ruler labels */
+  var ruler = document.getElementById('ruler');
+  if (ruler){ for (var y=80, i=1; y<4000; y+=80, i++){ var s=document.createElement('span'); s.style.top=y+'px'; s.textContent=(i*10); ruler.appendChild(s); } }
+
+  /* flowing particle stream (hero + closing) */
+  function stream(canvas, opts){
+    if(!canvas) return;
+    var ctx = canvas.getContext('2d'), dpr = Math.min(window.devicePixelRatio||1, 2), W, H, P = [], t = 0, running = true, r = rng(opts.seed||7);
+    function axis(y, tt){ return W*opts.x + Math.sin(y*0.0042 + tt*0.25)*W*0.09 + Math.sin(y*0.011 - tt*0.4)*W*0.03; }
+    function spawn(p, anywhere){
+      p.y = anywhere ? r()*H : H + r()*40;
+      p.o = gauss(r)*W*opts.spread*(0.4 + r());
+      p.v = 0.15 + r()*0.55;
+      p.a = 0.12 + r()*0.55;
+      p.s = r() < 0.06 ? 1.6 : 0.9;
+    }
+    function size(){
+      var b = canvas.getBoundingClientRect(); W = b.width; H = b.height;
+      canvas.width = W*dpr; canvas.height = H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0);
+      var n = Math.round(Math.min(4200, W*H/opts.density));
+      P = []; for (var i=0;i<n;i++){ var p={}; spawn(p,true); P.push(p); }
+      ctx.fillStyle = '#000'; ctx.fillRect(0,0,W,H);
+    }
+    function frame(){
+      if(!running) return;
+      if (!reduce){ ctx.fillStyle = 'rgba(0,0,0,0.34)'; ctx.fillRect(0,0,W,H); }
+      for (var i=0;i<P.length;i++){
+        var p = P[i];
+        p.y -= p.v; p.o += Math.sin(p.y*0.02 + i)*0.12;
+        if (p.y < -10) spawn(p,false);
+        var x = axis(p.y, t) + p.o;
+        ctx.fillStyle = 'rgba(243,241,234,' + p.a + ')';
+        ctx.fillRect(x, p.y, p.s, p.s);
+        if (p.s > 1){ ctx.fillStyle = 'rgba(243,241,234,0.04)'; ctx.fillRect(x-3, p.y-3, 7, 7); }
+      }
+      t += 0.016;
+      if(!reduce) requestAnimationFrame(frame);
+    }
+    size();
+    function still(){ for (var k=0;k<40;k++) frame(); }
+    if (reduce) still(); else frame();
+    var to; window.addEventListener('resize', function(){ clearTimeout(to); to = setTimeout(function(){ size(); if(reduce) still(); }, 200); });
+    if ('IntersectionObserver' in window && !reduce){
+      new IntersectionObserver(function(e){ var vis = e[0].isIntersecting; if (vis && !running){ running = true; requestAnimationFrame(frame); } else if(!vis){ running = false; } }).observe(canvas);
+    }
+  }
+  var mobile = window.innerWidth < 900;
+  stream(document.getElementById('flow'),  {x: mobile ? 0.5 : 0.27, spread: mobile ? 0.14 : 0.1, density: mobile ? 420 : 520, seed: 11});
+  stream(document.getElementById('flow2'), {x: 0.82, spread: 0.06, density: 900, seed: 29});
+
+
+  /* the mark, drawn as dust */
+  (function(){
+    var c=document.getElementById('markdust'); if(!c||!window.Path2D) return;
+    var x=c.getContext('2d'), dpr=Math.min(window.devicePixelRatio||1,2), W,H, pts=[], r=rng(4242), t=0, on=true;
+    var vb=MARK_VB.split(' ').map(Number), path=new Path2D(MARK_D);
+    function build(){
+      var b=c.getBoundingClientRect(); W=b.width; H=b.height; c.width=W*dpr; c.height=H*dpr; x.setTransform(dpr,0,0,dpr,0,0);
+      var mob=W<900, size=mob?Math.min(W*0.62,300):Math.min(H*0.56,W*0.3), cx=mob?W*0.5:W*0.27, cy=mob?H*0.24:H*0.5;
+      var s=size/vb[2], ox=cx-vb[2]*s/2, oy=cy-vb[3]*s/2;
+      var off=document.createElement('canvas'); off.width=Math.ceil(W); off.height=Math.ceil(H);
+      var o=off.getContext('2d'); o.setTransform(s,0,0,s,ox,oy); o.fill(path,'evenodd');
+      var data=o.getImageData(0,0,off.width,off.height).data; pts=[];
+      var n=mob?2600:4200, tries=0;
+      while(pts.length<n && tries<n*60){ tries++;
+        var px=ox+r()*vb[2]*s, py=oy+r()*vb[3]*s, i=((py|0)*off.width+(px|0))*4+3;
+        if(data[i]>128) pts.push({hx:px,hy:py,ph:r()*6.283,a:.25+r()*.7,z:r()<.05?1.7:1});
+      }
+      for(var k=0;k<pts.length*0.18;k++){ var q=pts[(r()*pts.length)|0]; pts.push({hx:q.hx+gauss(r)*26,hy:q.hy+gauss(r)*26-r()*40,ph:r()*6.283,a:.06+r()*.22,z:1}); }
+    }
+    function draw(){
+      if(!on) return;
+      x.clearRect(0,0,W,H);
+      for(var i=0;i<pts.length;i++){ var p=pts[i], dx=Math.sin(t*0.7+p.ph)*0.9, dy=Math.cos(t*0.5+p.ph*1.3)*0.9-(i%7===0?((t*6+p.ph*20)%14):0)*0.15;
+        x.fillStyle='rgba(243,241,234,'+p.a+')'; x.fillRect(p.hx+dx,p.hy+dy,p.z,p.z); }
+      t+=0.016; if(!reduce) requestAnimationFrame(draw);
+    }
+    build(); draw();
+    var to; addEventListener('resize',function(){clearTimeout(to);to=setTimeout(function(){build(); if(reduce) draw();},200);});
+    if('IntersectionObserver' in window && !reduce){ new IntersectionObserver(function(e){ var v=e[0].isIntersecting; if(v&&!on){on=true;requestAnimationFrame(draw);} else if(!v){on=false;} }).observe(c); }
+  })();
+  /* static specimen frames for roles */
+  document.querySelectorAll('.frame canvas').forEach(function(c){
+    var seed = +c.dataset.seed, r = rng(seed*977), b = c.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio||1, 2);
+    var W = b.width, H = b.height; c.width = W*dpr; c.height = H*dpr;
+    var x = c.getContext('2d'); x.setTransform(dpr,0,0,dpr,0,0); x.fillStyle='#000'; x.fillRect(0,0,W,H);
+    function dot(px,py,a,s){ x.fillStyle='rgba(243,241,234,'+a+')'; x.fillRect(px,py,s||1,s||1); }
+    var N = 5200, i, u, px, py;
+    for (i=0;i<N;i++){
+      u = r();
+      if (seed===1){ /* light, kept: soft cloud */
+        px = W*0.5 + gauss(r)*W*0.32; py = H*0.5 + gauss(r)*H*0.36; dot(px,py,r()*0.45);
+      } else if (seed===2){ /* motion: diagonal streak */
+        var k = r(); px = k*W + gauss(r)*14; py = H - k*H*0.9 + gauss(r)*10 + Math.sin(k*9)*10; dot(px,py,r()*0.6);
+      } else if (seed===3){ /* form: grid-held particles */
+        px = Math.round(r()*12)/12*W*0.8 + W*0.1 + gauss(r)*5; py = Math.round(r()*7)/7*H*0.8 + H*0.1 + gauss(r)*5; dot(px,py,r()*0.55);
+      } else if (seed===4){ /* rhythm: wave bands */
+        px = r()*W; var band = Math.floor(r()*3); py = H*(0.3+band*0.2) + Math.sin(px*0.06 + band)*H*0.08 + gauss(r)*4; dot(px,py,r()*0.6);
+      } else if (seed===5){ /* together: vertical river */
+        py = r()*H; px = W*0.5 + Math.sin(py*0.05)*W*0.12 + gauss(r)*W*0.06; dot(px,py,r()*0.6);
+      } else { /* crossing paths */
+        var k2 = r(); if (r()<0.5){ px = k2*W; py = H*0.2 + k2*H*0.6; } else { px = k2*W; py = H*0.8 - k2*H*0.6; }
+        px += gauss(r)*8; py += gauss(r)*8; dot(px,py,r()*0.6);
+      }
+    }
+    for (i=0;i<14;i++) dot(r()*W, r()*H, 0.9, 1.6);
+  });
+})();
+</script>
+</body>
+</html>
