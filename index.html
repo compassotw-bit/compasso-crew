@@ -163,6 +163,70 @@
     .sticky{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(0,0,0,.88);backdrop-filter:blur(10px);border-top:1px solid var(--hair-2)}
     .sticky .btn{width:100%;justify-content:center}
   }
+  /* ===== native application form ===== */
+  #join{scroll-margin-top:60px}
+  .apply{display:grid;grid-template-columns:240px 1fr;gap:56px;margin-top:56px}
+  .stepper{list-style:none;position:sticky;top:96px;align-self:start;border-left:1px solid var(--hair-2)}
+  .stepper li{position:relative;padding:9px 0 9px 20px;font-family:var(--ui);font-size:14px;line-height:1.4;color:var(--dim);cursor:default;transition:color .2s}
+  .stepper li .n{font-family:var(--serif);font-style:italic;font-size:16px;margin-right:10px}
+  .stepper li.done{color:var(--mute);cursor:pointer}
+  .stepper li.on{color:var(--bone)}
+  .stepper li.on::before{content:"";position:absolute;left:-1px;top:8px;bottom:8px;width:1px;background:var(--bone)}
+  .meter{height:1px;background:var(--hair-2);margin-bottom:40px;position:relative}
+  .meter i{position:absolute;left:0;top:0;bottom:0;background:var(--bone);transition:width .4s ease}
+  .meter span{position:absolute;right:0;top:10px;font-family:var(--serif);font-style:italic;font-size:14px;color:var(--mute)}
+  .pane[hidden]{display:none}
+  .pane-head{display:flex;align-items:baseline;gap:16px;margin-bottom:8px}
+  .pane-head .n{font-family:var(--serif);font-style:italic;font-size:28px;color:var(--soft)}
+  .pane-head h3{font-family:var(--disp);font-weight:600;font-size:clamp(30px,3.6vw,44px);text-transform:uppercase;line-height:1}
+  .pane-zh{font-family:"Noto Sans TC",var(--fallback);color:var(--mute);font-size:15px;margin-bottom:36px}
+  .note-block{border-left:1px solid var(--hair);padding:2px 0 2px 20px;margin-bottom:24px;max-width:var(--measure)}
+  .note-block b{display:block;font-family:var(--ui);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}
+  .note-block p{font-family:"Noto Sans TC",var(--fallback);color:var(--soft);font-size:15px;line-height:1.85}
+  .q{margin-bottom:40px;max-width:640px}
+  .q > label,.q > .ql{display:block;font-family:"Noto Sans TC",var(--fallback);font-weight:500;font-size:1.0625rem;line-height:1.55;color:var(--bone)}
+  .q .req{color:var(--needle);margin-left:4px;font-weight:400}
+  .q .help{display:block;font-family:"Noto Sans TC",var(--fallback);font-size:14px;line-height:1.7;color:var(--mute);margin-top:4px}
+  .q input[type=text],.q textarea{display:block;width:100%;margin-top:14px;background:transparent;border:0;border-bottom:1px solid var(--hair);color:var(--bone);font:400 16px/1.6 "Noto Sans TC",var(--fallback);padding:8px 0 10px;border-radius:0;transition:border-color .2s;-webkit-appearance:none}
+  .q textarea{min-height:96px;resize:vertical;border:1px solid var(--hair);padding:12px 14px}
+  .q input::placeholder,.q textarea::placeholder{color:var(--dim)}
+  .q input:focus,.q textarea:focus{outline:none;border-color:var(--bone)}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+  .chip{position:relative}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip span{display:inline-block;border:1px solid var(--hair);border-radius:999px;padding:9px 16px;font-family:"Noto Sans TC",var(--fallback);font-size:15px;line-height:1.4;color:var(--soft);cursor:pointer;transition:background .2s,color .2s,border-color .2s;user-select:none}
+  .chip span:hover{border-color:var(--soft)}
+  .chip input:checked + span{background:var(--bone);border-color:var(--bone);color:#000;font-weight:500}
+  .chip input:focus-visible + span{outline:1px solid var(--bone);outline-offset:3px}
+  .chips.wide{flex-direction:column;gap:8px}
+  .chips.wide .chip span{display:block;border-radius:14px;padding:13px 18px}
+  .chips.wide .chip span b{display:block;font-family:var(--ui);font-weight:600;font-size:13px;letter-spacing:.12em;margin-bottom:2px}
+  .q .other-in{display:none}
+  .q .other-in.show{display:block}
+  .zh-note{font-family:"Noto Sans TC",var(--fallback);font-style:normal;font-size:13px;color:var(--mute)}
+  .q.err > label,.q.err > .ql{color:var(--bone)}
+  .q .msg{display:none;font-family:"Noto Sans TC",var(--fallback);font-size:13px;color:var(--needle);margin-top:10px}
+  .q.err .msg{display:block}
+  .q.err input[type=text],.q.err textarea{border-color:var(--needle)}
+  .nav-row{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:8px;padding-top:28px;border-top:1px solid var(--hair-2);max-width:640px}
+  .ghost{background:none;border:0;color:var(--mute);font:400 15px "Noto Sans TC",var(--fallback);cursor:pointer;padding:12px 0}
+  .ghost:hover{color:var(--bone)}
+  .ghost[disabled]{visibility:hidden}
+  button.btn{border:0;cursor:pointer}
+  button.btn[disabled]{opacity:.55;cursor:progress}
+  .alt{margin-top:28px;font-family:"Noto Sans TC",var(--fallback);font-size:13px;color:var(--dim)}
+  .alt a{color:var(--mute)}
+  .done-view{max-width:560px;padding:24px 0 8px}
+  .done-view svg{width:64px;height:auto;aspect-ratio:1982/1910;color:var(--bone);margin-bottom:28px}
+  .done-view h3{font-family:var(--disp);font-weight:600;font-size:clamp(40px,5vw,60px);text-transform:uppercase;line-height:1;margin-bottom:18px}
+  .done-view p{font-family:"Noto Sans TC",var(--fallback);color:var(--soft);margin-bottom:10px}
+  .sticky.away{transform:translateY(110%)}
+  .sticky{transition:transform .3s ease}
+  @media (max-width:900px){
+    .apply{grid-template-columns:1fr;gap:0}
+    .stepper{display:none}
+  }
+
 </style>
 </head>
 <body>
@@ -177,7 +241,7 @@
 <nav>
   <div class="wrap">
     <a class="logo" href="#top" aria-label="compasso"><svg class="lm" viewBox="0 0 1982 1910"><use href="#mark"/></svg><svg class="lw" viewBox="0 0 2353 431"><use href="#word"/></svg></a>
-    <a class="navcta" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew</a>
+    <a class="navcta" href="#join">加入 Crew</a>
   </div>
 </nav>
 
@@ -195,7 +259,7 @@
       <h1>Measure<br>the way,<br>together.</h1>
       <p class="zh"><span class="nw">有些事，一個人也能做。</span><br><span class="nw">一起做，</span><span class="nw">會走得更遠一點。</span></p>
       <p class="sub">COMPASSO 想邀請喜歡拍照、剪片、設計、音樂、帶跑，或喜歡牽起合作的你。不用很厲害，願意一起來就好。</p>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew
+      <a class="btn" href="#join">加入 Crew
         <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
     </div>
 
@@ -279,16 +343,40 @@
     <div class="head"><span class="cap">Getting started</span><span class="num">05</span></div>
     <h2>First steps.</h2>
     <ol class="steps" style="margin-top:48px">
-      <li><h3>填寫表單</h3><p>花幾分鐘，聊聊你喜歡做什麼。有作品可以附上，沒有也沒關係。</p></li>
+      <li><h3>填寫報名</h3><p>就在這一頁往下，花幾分鐘聊聊你喜歡做什麼。有作品可以附上，沒有也沒關係。</p></li>
       <li><h3>我們會好好讀</h3><p>每一份都會細細看。有適合的活動或合作時，會主動聯絡你。</p></li>
       <li><h3>從一場活動開始</h3><p>先一起跑一次、拍一次，彼此認識，再看看接下來想怎麼走。</p></li>
     </ol>
   </div>
 </section>
 
+<section id="join">
+  <div class="wrap">
+    <div class="head"><span class="cap">Application</span><span class="num">06</span></div>
+    <h2>Join the crew.</h2>
+    <p class="lead muted"><span class="nw">你不一定要跑得很快，</span><span class="nw">也不一定要已經很專業。</span></p>
+    <p class="cap" style="margin-top:14px">approx. 5–8 min · 18+ &nbsp;<span class="zh-note">約需 5–8 分鐘，適用年滿 18 歲的填寫者</span></p>
+    <div class="apply">
+      <ol class="stepper" id="stepper" aria-hidden="true"></ol>
+      <div>
+        <div class="meter" aria-hidden="true"><i id="meterbar"></i><span id="metertext"></span></div>
+        <form id="crewform" novalidate></form>
+        <div class="done-view" id="doneview" hidden>
+          <svg viewBox="0 0 1982 1910" aria-hidden="true"><use href="#mark"/></svg>
+          <h3>Received.</h3>
+          <p>收到你的報名了，謝謝你願意一起來。</p>
+          <p>我們會好好讀每一份回覆。有適合的活動或合作時，會透過 IG 私訊或你留下的聯絡方式找你。</p>
+          <p style="margin-top:22px;font-size:15px;color:var(--mute)">在那之前，可以先到 <a href="https://www.instagram.com/compasso.co/" target="_blank" rel="noopener">IG @compasso.co</a> 看看我們最近在做什麼。</p>
+        </div>
+        <p class="alt" id="altlink">頁面表單無法送出嗎？也可以改用 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">Google 表單</a> 填寫。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="faq">
   <div class="wrap">
-    <div class="head"><span class="cap">Notes &amp; questions</span><span class="num">06</span></div>
+    <div class="head"><span class="cap">Notes &amp; questions</span><span class="num">07</span></div>
     <h2>Good to know.</h2>
     <div class="faq" style="margin-top:40px">
       <details><summary>不會跑步也可以加入嗎？</summary><p>當然可以。攝影、影像、設計、音樂、合作，都不需要跑步。想帶跑的朋友，有跑步經驗會更好。</p></details>
@@ -305,10 +393,10 @@
   <canvas id="flow2" aria-hidden="true"></canvas>
   <div class="wrap">
     <svg class="cm" viewBox="0 0 1982 1910" aria-hidden="true"><use href="#mark"/></svg>
-    <p class="cap" style="margin-bottom:22px">fig. 07 — and then, you.</p>
+    <p class="cap" style="margin-bottom:22px">fig. 08 — and then, you.</p>
     <h2>Find your direction.<br><span class="n">Then give one.</span></h2>
     <p class="lead muted"><span class="nw">期待在路上，</span><span class="nw">遇見你。</span></p>
-    <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">填寫報名表
+    <a class="btn" href="#join">填寫報名表
       <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
   </div>
 </section>
@@ -321,7 +409,7 @@
 </footer>
 
 <div class="sticky">
-  <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">加入 Crew
+  <a class="btn" href="#join">加入 Crew
     <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></a>
 </div>
 
@@ -438,6 +526,154 @@
     }
     for (i=0;i<14;i++) dot(r()*W, r()*H, 0.9, 1.6);
   });
+})();
+</script>
+<script>
+var CREW_FORM = {
+  action: "https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/formResponse",
+  steps: [
+    { no:"01", title:"About you", zh:"關於你", fields:[
+      {id:363217235, type:"short", req:1, label:"你的名字／稱呼"},
+      {id:1570725572, type:"short", req:1, label:"Instagram 帳號", help:"例：@compasso.co", ph:"@"},
+      {id:660744572, type:"short", req:0, label:"LINE ID 或 Email（選填）", help:"萬一 IG 私訊沒看到，我們可以用這個聯絡你。"},
+      {id:287098442, type:"radio", req:1, label:"目前居住／主要活動地區", opts:["桃園","台北／新北","新竹"], other:1},
+      {id:1885399790, type:"radio", req:1, label:"你的年齡區間", opts:["18–22","23–27","28–32","33–40","40+"]}
+    ]},
+    { no:"02", title:"Movement", zh:"運動", fields:[
+      {id:1403948486, type:"checkbox", req:1, label:"平常有參與哪些運動或活動？", opts:["跑步","Hybrid Training","健身／重量訓練","瑜伽／皮拉提斯","登山／越野","單車","游泳","球類運動","舞蹈","戶外活動","目前沒有固定運動，但想開始"], other:1},
+      {id:1051832274, type:"radio", req:1, label:"你目前跑步的狀態？", help:"沒有速度門檻。COMPASSO 在意的不是你跑多快，而是你願不願意一起往前。", opts:["剛開始跑","偶爾跑","固定每週跑步","有參加路跑／馬拉松","競技／訓練導向","我主要不是跑者"]}
+    ]},
+    { no:"03", title:"Your direction", zh:"你的方向", fields:[
+      {id:1424234748, type:"checkbox", req:1, wide:1, label:"如果加入 COMPASSO，你比較想參與哪一種角色？", opts:["RUN CREW｜帶跑、配速、路線與跑步活動","EVENT CREW｜流程、報到、場控與活動執行","CREATIVE CREW｜攝影、影像、設計、文案與內容","MUSIC & CULTURE｜DJ、音樂、藝術與文化企劃","COMMUNITY CREW｜成員交流、社群維護、活動體驗","PERFORMANCE CREW｜Running／Hybrid／Training 類內容與活動","BRAND & PARTNERSHIP｜品牌合作、提案、資源整合與商務","PRODUCT & FASHION｜服裝、商品、選品、造型與品牌延伸","我還不知道，但想先參與看看"]},
+      {id:1389924727, type:"para", req:1, label:"有沒有你特別擅長，或正在學習的事情？", help:"不用很厲害。攝影、剪輯、設計、企劃、寫字、音樂、運動、社群、主持、DJ，甚至「很會跟人聊天」都算。"},
+      {id:1487406332, type:"short", req:0, label:"作品集連結（選填）", help:"IG、作品網站、雲端資料夾都可以。"},
+      {id:474766173, type:"para", req:0, label:"如果完全不考慮工作與賺錢，你最願意花時間做什麼？（選填）"}
+    ]},
+    { no:"04", title:"Participation", zh:"參與", fields:[
+      {id:561967400, type:"radio", req:1, label:"一個月大約能參與幾次 COMPASSO 活動？", opts:["1 次","2 次","3–4 次","4 次以上","視活動與時間安排"]},
+      {id:1684253713, type:"checkbox", req:1, label:"哪些時間聯絡通常比較方便？", opts:["平日白天","平日晚上","週五晚上","週六早上","週六下午／晚上","週日早上","週日下午／晚上","時間彈性，可依活動安排"]},
+      {id:1641473752, type:"radio", req:1, label:"COMPASSO 目前主要活動範圍在桃園，你方便參與嗎？", opts:["可以，桃園是主要活動範圍","可以，偶爾從外縣市過來","需要依活動與時間決定","目前較困難"]}
+    ]},
+    { no:"05", title:"How we work together", zh:"合作方式", blocks:[
+      ["Community participation","COMPASSO COMMUNITY CREW 現階段是一個以興趣、專長與共同理念為基礎的共創社群。一般社群活動的參與屬於自主性質，沒有固定薪資或固定報酬。你可以依照自己的時間與意願，選擇想參與的活動與企劃，也可以隨時說不。"],
+      ["When a project becomes commercial","當 COMPASSO 與品牌、企業或其他單位產生具有預算的商業合作時，我們會另外建立該次專案的合作方式。所有有酬合作，都會在專案開始前以書面確認工作內容與回報方式，例如專案執行費、攝影／影像／設計／音樂等專業費用、Project Lead Fee、Partnership Commission、Revenue Share，或其他雙方事前確認的方式。"],
+      ["Create value. Share value.","如果一個合作機會是由你主動開發、介紹、洽談或促成，創造這個價值的人，也應該分享這個價值。成功促成商業合作的成員，COMPASSO 會依實際貢獻與專案內容，另外確認 Partnership Commission／Success Fee。"]
+    ], fields:[
+      {id:1596669361, type:"radio", req:1, wide:1, label:"我已閱讀並了解上述合作方式", opts:["我了解 COMPASSO COMMUNITY CREW 現階段並非固定聘僱職缺；一般社群共創活動沒有固定薪資，商業專案的工作內容與報酬／分潤會於執行前另外確認。"]}
+    ]},
+    { no:"06", title:"You × COMPASSO", zh:"你與 COMPASSO", fields:[
+      {id:436611106, type:"radio", req:1, label:"你從哪裡認識 COMPASSO？", opts:["Instagram","朋友介紹","參加過 COMPASSO 活動","動誌報導","LINE 社群"], other:1},
+      {id:1863319891, type:"para", req:1, label:"為什麼想加入？COMPASSO 哪一件事情最吸引你？", help:"可能是一場跑步、一次活動、一張照片、一段文字，或只是某種感覺。"},
+      {id:1672658888, type:"para", req:0, label:"如果讓你在 COMPASSO 發起一個企劃，你最想做什麼？（選填）", help:"不用先考慮預算與現實。跑步、音樂、時尚、旅行、藝術、公益、訓練、派對、戶外都可以。"}
+    ]},
+    { no:"07", title:"Privacy", zh:"個人資料", blocks:[
+      ["","你填寫的姓名、社群帳號、聯絡方式、年齡區間與居住地區，僅用於 COMPASSO 社群招募、聯繫與活動安排，不會提供給第三方，也不會用於與本表單無關的行銷。資料保存至招募與合作期間結束為止；你可以隨時透過 Instagram @compasso.co 要求查詢、更正或刪除你的資料。"]
+    ], fields:[
+      {id:168402802, type:"checkbox", req:1, wide:1, label:"個人資料蒐集同意", opts:["我已閱讀並同意上述個人資料蒐集與使用說明"]}
+    ]}
+  ]
+};
+(function(){
+  var F = CREW_FORM, form = document.getElementById('crewform'); if(!form) return;
+  var cur = 0, KEY = 'compasso-crew-draft', stepper = document.getElementById('stepper');
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
+  function chipLabel(o){ var i=o.indexOf('｜'); return i>0 ? '<b>'+esc(o.slice(0,i))+'</b>'+esc(o.slice(i+1)) : esc(o); }
+  function fieldHTML(f){
+    var name='entry.'+f.id, req=f.req?'<span class="req" aria-hidden="true">*</span>':'', help=f.help?'<span class="help">'+esc(f.help)+'</span>':'', h='';
+    if(f.type==='short'||f.type==='para'){
+      var ctl = f.type==='short' ? '<input type="text" id="f'+f.id+'" name="'+name+'" autocomplete="off"'+(f.ph?' placeholder="'+esc(f.ph)+'"':'')+'>' : '<textarea id="f'+f.id+'" name="'+name+'"></textarea>';
+      h='<div class="q" data-id="'+f.id+'"><label for="f'+f.id+'">'+esc(f.label)+req+help+'</label>'+ctl+'<span class="msg">這題需要填寫喔。</span></div>';
+    } else {
+      var t = f.type==='radio'?'radio':'checkbox', opts=f.opts.map(function(o){ return '<label class="chip"><input type="'+t+'" name="'+name+'" value="'+esc(o)+'"><span>'+chipLabel(o)+'</span></label>'; }).join('');
+      if(f.other) opts+='<label class="chip"><input type="'+t+'" name="'+name+'" value="__other_option__" data-other><span>其他</span></label>';
+      h='<div class="q" data-id="'+f.id+'" role="group" aria-label="'+esc(f.label)+'"><span class="ql">'+esc(f.label)+req+help+'</span><div class="chips'+(f.wide?' wide':'')+'">'+opts+'</div>'+
+        (f.other?'<input type="text" class="other-in" name="'+name+'.other_option_response" placeholder="請寫下你的答案" aria-label="其他">':'')+
+        '<span class="msg">'+(t==='radio'?'請選一個。':'至少選一個喔。')+'</span></div>';
+    }
+    return h;
+  }
+  form.innerHTML = F.steps.map(function(s,i){
+    var blocks = (s.blocks||[]).map(function(b){ return '<div class="note-block">'+(b[0]?'<b>'+esc(b[0])+'</b>':'')+'<p>'+esc(b[1])+'</p></div>'; }).join('');
+    return '<div class="pane" data-step="'+i+'"'+(i?' hidden':'')+'><div class="pane-head"><span class="n">'+s.no+'</span><h3>'+esc(s.title)+'</h3></div><p class="pane-zh">'+esc(s.zh)+'</p>'+blocks+s.fields.map(fieldHTML).join('')+
+      '<div class="nav-row"><button type="button" class="ghost" data-prev'+(i?'':' disabled')+'>← 上一步</button>'+
+      (i<F.steps.length-1 ? '<button type="button" class="btn" data-next>下一步 <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button>'
+                          : '<button type="submit" class="btn">送出報名 <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9h12M10 4l5 5-5 5"/></svg></button>')+'</div></div>';
+  }).join('');
+  stepper.innerHTML = F.steps.map(function(s,i){ return '<li data-go="'+i+'"><span class="n">'+s.no+'</span>'+esc(s.title)+'</li>'; }).join('');
+
+  var panes = form.querySelectorAll('.pane');
+  function show(i, scroll){
+    cur = i;
+    panes.forEach(function(p,k){ p.hidden = k!==i; });
+    stepper.querySelectorAll('li').forEach(function(li,k){ li.className = k===i?'on':(k<i?'done':''); });
+    document.getElementById('meterbar').style.width = ((i+1)/panes.length*100)+'%';
+    document.getElementById('metertext').textContent = (i+1)+' / '+panes.length;
+    if(scroll){ var top = document.getElementById('join').getBoundingClientRect().top + window.scrollY + 120; window.scrollTo({top: top, behavior:'smooth'}); }
+  }
+  function check(q){
+    var id=q.dataset.id, f=null; F.steps.forEach(function(s){ s.fields.forEach(function(x){ if(String(x.id)===id) f=x; }); });
+    var ok=true, box=q.querySelector('.other-in');
+    if(f.type==='short'||f.type==='para'){ ok = !f.req || q.querySelector('input,textarea').value.trim()!==''; }
+    else {
+      var picked=[].slice.call(q.querySelectorAll('.chip input:checked'));
+      ok = !f.req || picked.length>0;
+      if(ok && box && picked.some(function(x){return x.hasAttribute('data-other');}) && !box.value.trim()) ok=false;
+    }
+    q.classList.toggle('err', !ok); return ok;
+  }
+  function valid(i){
+    var bad=null; panes[i].querySelectorAll('.q').forEach(function(q){ if(!check(q) && !bad) bad=q; });
+    if(bad){ bad.scrollIntoView({behavior:'smooth', block:'center'}); var el=bad.querySelector('input,textarea'); if(el) try{el.focus({preventScroll:true});}catch(e){} }
+    return !bad;
+  }
+  form.addEventListener('click', function(e){
+    var n=e.target.closest('[data-next]'), p=e.target.closest('[data-prev]');
+    if(n && valid(cur)) show(cur+1, true);
+    if(p && cur>0) show(cur-1, true);
+  });
+  stepper.addEventListener('click', function(e){ var li=e.target.closest('li.done'); if(li) show(+li.dataset.go, true); });
+  form.addEventListener('change', function(e){
+    var q=e.target.closest('.q');
+    if(e.target.matches('.chip input')){ var box=q.querySelector('.other-in'); if(box){ var on=!!q.querySelector('[data-other]:checked'); box.classList.toggle('show',on); if(on && e.target.hasAttribute('data-other')) box.focus(); } }
+    if(q && q.classList.contains('err')) check(q);
+    save();
+  });
+  form.addEventListener('input', function(e){ var q=e.target.closest('.q'); if(q && q.classList.contains('err')) check(q); save(); });
+
+  /* draft kept on this device only */
+  function save(){ try{ var d={}; new FormData(form).forEach(function(v,k){ (d[k]=d[k]||[]).push(v); }); localStorage.setItem(KEY, JSON.stringify(d)); }catch(e){} }
+  (function load(){ try{ var d=JSON.parse(localStorage.getItem(KEY)||'null'); if(!d) return;
+    Object.keys(d).forEach(function(k){ form.querySelectorAll('[name="'+k+'"]').forEach(function(el){
+      if(el.type==='radio'||el.type==='checkbox'){ el.checked = d[k].indexOf(el.value)>-1; } else { el.value = d[k][0]||''; } }); });
+    form.querySelectorAll('.other-in').forEach(function(b){ if(b.closest('.q').querySelector('[data-other]:checked')) b.classList.add('show'); });
+  }catch(e){} })();
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    for(var i=0;i<panes.length;i++){ var bad=false; panes[i].querySelectorAll('.q').forEach(function(q){ if(!check(q)) bad=true; }); if(bad){ show(i,true); valid(i); return; } }
+    var body = new URLSearchParams();
+    new FormData(form).forEach(function(v,k){
+      if(/\.other_option_response$/.test(k)){ var base=k.replace('.other_option_response',''); if(!form.querySelector('[name="'+base+'"][data-other]:checked')) return; }
+      body.append(k, typeof v==='string' ? v.trim() : v);
+    });
+    body.append('fvv','1'); body.append('pageHistory', F.steps.map(function(_,i){return i;}).join(','));
+    var btn=form.querySelector('[type=submit]'); btn.disabled=true; btn.firstChild.textContent='送出中… ';
+    fetch(F.action, {method:'POST', mode:'no-cors', body: body}).then(function(){
+      try{ localStorage.removeItem(KEY); }catch(e){}
+      form.hidden=true; document.getElementById('altlink').hidden=true; document.getElementById('stepper').style.visibility='hidden';
+      document.getElementById('meterbar').style.width='100%'; document.getElementById('metertext').textContent='done';
+      document.getElementById('doneview').hidden=false; show && window.scrollTo({top: document.getElementById('join').getBoundingClientRect().top + window.scrollY, behavior:'smooth'});
+    }).catch(function(){
+      btn.disabled=false; btn.firstChild.textContent='送出報名 ';
+      var a=document.getElementById('altlink'); a.innerHTML='網路好像不太穩，沒有送出成功。你填的內容還在，請再試一次，或改用 <a href="https://docs.google.com/forms/d/e/1FAIpQLSdQ6Rss_92mvn-Nm-Dih2kebp8V6i8S5dqh72ao8p2zqBfLfw/viewform" target="_blank" rel="noopener">Google 表單</a>。';
+      a.style.color='var(--needle)';
+    });
+  });
+  show(0,false);
+
+  /* hide sticky CTA while the form is on screen */
+  var st=document.querySelector('.sticky');
+  if(st && 'IntersectionObserver' in window){ new IntersectionObserver(function(e){ st.classList.toggle('away', e[0].isIntersecting); },{rootMargin:'0px 0px -30% 0px'}).observe(document.getElementById('join')); }
 })();
 </script>
 </body>
